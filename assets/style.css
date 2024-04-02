@@ -65,3 +65,31 @@
     align-items: center;
     text-decoration: none;
 }
+
+/* Nav-bar - Home Page */
+
+.navbar {
+    height: 10vh;
+    background: white;
+}
+
+.navbar-brand{
+    font-size: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.main-cont {
+    width: 100%;
+    height: 90vh;
+    background-color: blue;
+}
