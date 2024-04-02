@@ -100,7 +100,11 @@
 }
 
 .link-active {
-    color: #A60D0D;
+    color: red;
+}
+
+.navbar-nav .nav-link:focus, .navbar-nav .nav-link:active {
+    color: red;
 }
 
 .nav-item a:hover {
