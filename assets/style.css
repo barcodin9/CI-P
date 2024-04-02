@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    height: 100%;
     box-sizing: border-box;
     font-family: 'Amatic SC', sans-serif;
 }
@@ -55,7 +54,7 @@
 .overlay-button {
     width: 70%;
     height:50%;
-    background-color: red;
+    background-color: #A60D0D;
     font-size: 40px;
     color: black;
     border: 1px solid transparent; 
@@ -69,23 +68,40 @@
 /* Nav-bar - Home Page */
 
 .navbar {
-    height: 10vh;
-    background: white;
+    background-color: black;
+}
+
+.navbar-collapse {
+    background: black;
 }
 
 .navbar-brand{
     font-size: 80px;
+    color: #A60D0D;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.navbar-brand:hover {
+    color: #D95E32;
+}
+
 .nav-link {
     font-size: 50px;
+    color: #A60D0D;
     display: flex;
     align-items: center;
     justify-content: center;
     
+}
+
+.link-active {
+    color: #A60D0D;
+}
+
+.nav-item a:hover {
+    color: #D95E32;
 }
 
 .main-cont {
