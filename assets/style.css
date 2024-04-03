@@ -65,7 +65,14 @@
     text-decoration: none;
 }
 
-/* Nav-bar - Home Page */
+/* Home Page */
+
+.bg-image {
+    background-image: url(/assets/images/tv-static-bg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
 
 .navbar {
     background-color: black;
@@ -116,7 +123,6 @@
 .home-main-container {
     width: 100%;
     height: 80vh;
-    background-color: white;
 }
 
 .footer-container {
@@ -164,30 +170,49 @@
 }
 
 /* Home Page Cards */
-.card-container {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-}
 
 .home-innercontainer {
     width: 100%;
     height: 80vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    display: grid;
+    grid-template-areas: 
+        "topbar topbar topbar"
+        "sidebarhigh carousel carousel"
+        "sidebarlow carousel carousel"
+        "footer footer footer"    
+    ;
+    gap: 50px;
 }
 
 .carousel {
-    width: 1200px;
-    padding-left: 50px;
+    width: 90%;
+    height: fit-content;
+    margin-top: 5%;
+    padding-left: 80px;
+    grid-area: carousel;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+
 }
 
 .home-card1 {
-    width: 80%;
-    height: 30vh;
+    width: 90%;
+    height: 35vh;
+    margin-left: 100px;
     background-color: green;
-    margin: 10% 10% 10% 10%;
+    grid-area: sidebarhigh;
+    
+}
+
+.home-card2 {
+    width: 90%;
+    height: 35vh;
+    margin-left: 100px;
+    background-color: green;
+    grid-area: sidebarlow;
     
 }
 
@@ -195,14 +220,6 @@
     height: 100%;
     width: 100%;
     object-fit: fill;
-}
-
-.home-card2 {
-    width: 80%;
-    height: 30vh;
-    background-color: green;
-    margin: 10% 10% 10% 10%;
-    
 }
 
 @media (max-width: 768px) {
