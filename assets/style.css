@@ -68,18 +68,42 @@
 /* Home Page */
 
 .bg-image {
-    background-image: url(/assets/images/tv-static-bg.jpeg);
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    background-blend-mode: multiply;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-size: cover;
 }
 
+.white-noise-overlay {
+    position: absolute;
+    inset: -200%;
+    background-image: url(/assets/images/whitenoise.jpeg);
+    opacity: 15%;
+    z-index: 10;
+    pointer-events: none;
+
+    animation: shift 0.2s linear infinite both;
+}
+
+@keyframes shift {
+    0% {
+        transform: translateX(10%) translateY(10%);
+    }
+    100% {
+        transform: translateX(-10%) translateY(-10%);
+    }
+}
+
 .navbar {
-    background-color: black;
+    background-color: #0D0D0D;
+    z-index: 11;
 }
 
 .navbar-collapse {
-    background: black;
+    background: #0D0D0D;
 }
 
 .navbar-brand{
@@ -124,6 +148,7 @@
     width: 100%;
     height: 80vh;
 }
+
 
 .footer-container {
     width: 100%;
@@ -187,9 +212,9 @@
 .carousel {
     width: 90%;
     height: fit-content;
-    margin-top: 5%;
-    padding-left: 80px;
+    margin: 5% 0 0 5%;
     grid-area: carousel;
+    border: 10px solid grey;
 }
 
 .carousel-item img {
@@ -202,6 +227,7 @@
     width: 90%;
     height: 35vh;
     margin-left: 100px;
+    border: 10px solid grey;
     background-color: green;
     grid-area: sidebarhigh;
     
@@ -211,6 +237,7 @@
     width: 90%;
     height: 35vh;
     margin-left: 100px;
+    border: 10px solid grey;
     background-color: green;
     grid-area: sidebarlow;
     
