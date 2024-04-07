@@ -178,6 +178,13 @@
     padding: 10px;
 }
 
+.nav-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
 
 @keyframes shake {
     0%, 100% {

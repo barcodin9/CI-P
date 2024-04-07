@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@clerk/clerk-js": "^4.71.2",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "shopify-cartjs": "^1.1.0"
   }
 }
