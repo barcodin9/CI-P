@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/barra/CI-PP5/CI-PP5/virtenv"
+VIRTUAL_ENV="/Users/barra/CI-PP5/virtenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
