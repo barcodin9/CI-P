@@ -4,7 +4,7 @@ from django.conf import settings
 
 # Create your views here.
 def home(request):
-    return render(request, 'test.html')
+    return render(request, 'index.html')
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
