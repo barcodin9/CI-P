@@ -358,3 +358,18 @@ button[type="submit"]:hover {
 
     
 }
+
+/* newsletter signup */
+
+#newsletter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#email-entry {
+    margin: 10px;
+    width: 50%;
+}

@@ -9,4 +9,4 @@ def newsletter_signup(request):
             return redirect('success_url') 
     else:
         form = SignUpForm()
-    return render(request, 'your_template.html', {'form': form})
+    return render(request, 'newsletter.html', {'form': form})
