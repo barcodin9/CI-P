@@ -27,3 +27,5 @@ class Product(models.Model):
 
 class Newsletter(models.Model):
     email = models.EmailField(max_length=254)
+
+
