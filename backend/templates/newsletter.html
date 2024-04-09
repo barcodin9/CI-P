@@ -1,8 +1,8 @@
 <div>
     <form method="post" id="newsletter-container">
         {% csrf_token %}
-        <h2 id="email-entry">Sign Up to our newsletter!</h2>
-        <input type="email" name="email" placeholder="Your Email" id="email-entry">
-        <button type="submit" id="newsletter-submit">Sign up to my newsletter</button>
+        <h2 id="email-entry1">Sign Up to our newsletter!</h2>
+        {{ form.as_p }}
+        <button type="submit" id="newsletter-submit">Sign up</button>
     </form>
 </div>
