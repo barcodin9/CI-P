@@ -14,6 +14,8 @@
 
 <body>
 
+
+<div class="bg-image">
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home_newsletter' %}">The Crypt</a>
@@ -40,21 +42,27 @@
 
     </div>
     </div>
+    
 </nav>
-      
-      {% include 'products_template.html' %}
 
-      <footer class="footer-container">
-        <div>
-            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-        </div>
+    <div class="static-container">
+        <div class="white-noise-overlay"></div>
+        {% include 'products_template.html' %}
 
-        <div>
+    </div>
+</div>
+
+<footer class="footer-container">
+    <div>
+        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+
+    <div>
         <p class="copyright" >&copy; 2024 The Crypt. All rights reserved.</p>
     </div>
-  </footer>
+</footer>
 
 
       <script src="https://kit.fontawesome.com/93273035b0.js" crossorigin="anonymous"></script>
