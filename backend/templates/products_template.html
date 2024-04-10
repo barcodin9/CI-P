@@ -1,3 +1,5 @@
+
+
 <h1>Merchandise</h1>
 <div id="products-container">
     {% for product in products %}
@@ -8,22 +10,23 @@
             <p class="product-description">{{ product.description }}</p>
             <p class="product-price">Price: ${{ product.price }}</p>
             <p class="product-rating">Rating: {{ product.rating }}</p>
-            <button type="button" class="add-cart" value="{{ product-id }}" id="add-cart">Add to cart</button>
+            <button type="button" class="add-cart" value="{{ product.id }}">Add to cart</button>
         </div>
     {% endfor %}
 </div>
 
 <script>
 // check button press
-$(document).on('click', '#add-cart', function(e){
+$(document).on('click', '.add-cart', function(e){
+    var productId = $(this).val();
     e.preventDefault();
     $.ajax({
         type: 'POST',
-        url: '{% cart_add %}',
+        url: "{% url 'cart_add' %}",
         data: {
-            product_id: $('#add-cart').val(),
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            action: 'post'
+    product_id: productId,
+    csrfmiddlewaretoken: '{{ csrf_token }}',
+    action: 'post',
         },
 
         success: function(json){
@@ -31,7 +34,7 @@ $(document).on('click', '#add-cart', function(e){
         },
 
         error: function(xhr, errmsg, err){
-            
+
         },
     });
 })
