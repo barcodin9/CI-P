@@ -7,4 +7,7 @@ from merchandise.models import Product
 def get_all_products(request):
     products = Product.objects.all()
     return render(request, 'merch.html', {'products': products})
+
+def merchandise(request):
+    return render(request, 'merch.html')
     

@@ -9,9 +9,6 @@ from django.conf import settings
 def home(request):
     return render(request, 'index.html')
 
-def merch(request):
-    return render(request, 'merch.html')
-
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def checkout(request):
