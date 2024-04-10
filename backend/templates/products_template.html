@@ -3,11 +3,37 @@
     {% for product in products %}
         <div class="product">
             <img class="product-image" src="{{ product.image_url }}" alt="{{ product.name }}">
-            <h2 class="product-name">{{ product.name }}</h2> 
+            <h2 class="product-name">{{ product.name }}</h2>
+        </br> {{product.id}}
             <p class="product-description">{{ product.description }}</p>
             <p class="product-price">Price: ${{ product.price }}</p>
             <p class="product-rating">Rating: {{ product.rating }}</p>
-            <button class="add-cart">Add to cart</button>
+            <button type="button" class="add-cart" value="{{ product-id }}" id="add-cart">Add to cart</button>
         </div>
     {% endfor %}
 </div>
+
+<script>
+// check button press
+$(document).on('click', '#add-cart', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: '{% cart_add %}',
+        data: {
+            product_id: $('#add-cart').val(),
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            action: 'post'
+        },
+
+        success: function(json){
+            console.log(json)
+        },
+
+        error: function(xhr, errmsg, err){
+            
+        },
+    });
+})
+
+</script>
