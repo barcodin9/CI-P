@@ -1,3 +1,5 @@
+from merchandise.models import Product
+
 
 class Cart():
     def __init__(self, request):
@@ -21,3 +23,14 @@ class Cart():
             self.cart[product_id] = {'price': str(product.price)}
 
         self.session.modified = True
+
+    def __len___(self):
+        return len(self.cart)
+    
+    def get_prods(self):
+        #get ids from cart
+        product_ids = self.cart.keys()
+       #look up db products
+        products = Product.objects.filter(id__in=product_ids)
+        #return
+        return products

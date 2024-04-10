@@ -47,38 +47,41 @@
             </div>
         </nav>
 
-    <div class="cart-container">
-        <h1 class="cart-heading">Shopping Cart</h1>
-        <table>
-            <!-- to be dynamic generated -->
-            <tr>
-                <th class="cart-prod">Product</th>
-                <th class="cart-prod">Price</th>
-                <th class="cart-prod">Quantity</th>
-                <th class="cart-prod">Subtotal</th>
-            </tr>
-            <tr>
-                <td>Product Name 1</td>
-                <td>$10.00</td>
-                <td>2</td>
-                <td>$20.00</td>
-            </tr>
-            <tr>
-                <td>Product Name 2</td>
-                <td>$5.00</td>
-                <td>1</td>
-                <td>$5.00</td>
-            </tr>
-        </table>
+        <div class="cart-container">
+            <h1 class="cart-heading">Shopping Cart</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="cart-prod">Product</th>
+                        <th scope="col" class="cart-prod">Price</th>
+                        <th scope="col" class="cart-prod">Quantity</th>
+                        <th scope="col" class="cart-prod">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if cart_products %}
+                        {% for product in cart_products %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td>${{ product.price }}</td>
+                            <td>{{ product.quantity }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <h1>There are currently no items in your cart..</h1>
+                        {% endif %}
+                </tbody>
+            </table>
         
-        <div class="cart-summary">
-            <div class="cart-total">
-                <strong>Total: $25.00</strong>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <!-- total -->
+                    <strong>Total: €{{ total_price }}</strong>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
             </div>
-            <button class="checkout-btn">Proceed to Checkout</button>
         </div>
-    </div>
-
+        
     <footer class="footer-container">
         <nav>
             <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>

@@ -6,9 +6,21 @@
         <div class="product">
             <img class="product-image" src="{{ product.image_url }}" alt="{{ product.name }}">
             <h2 class="product-name">{{ product.name }}</h2>
-        </br> {{product.id}}
             <p class="product-description">{{ product.description }}</p>
             <p class="product-price">Price: ${{ product.price }}</p>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle quantity-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Quantity:
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">1</a></li>
+                  <li><a class="dropdown-item" href="#">2</a></li>
+                  <li><a class="dropdown-item" href="#">3</a></li>
+                  <li><a class="dropdown-item" href="#">4</a></li>
+                  <li><a class="dropdown-item" href="#">5</a></li>
+                </ul>
+              </div>
+            <p class="product-price">Quantity: ${{ product.price }}</p>
             <p class="product-rating">Rating: {{ product.rating }}</p>
             <button type="button" class="add-cart" value="{{ product.id }}">Add to cart</button>
         </div>
