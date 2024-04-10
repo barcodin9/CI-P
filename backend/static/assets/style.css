@@ -475,9 +475,20 @@ align-self: flex-end;
 .cart-container { 
   max-width: 800px; 
   margin: auto; 
+  width: 100%;
+  height: 70vh;
+  margin-top: 100px;
 }
 
 /* Cart page */
+
+.cart-heading {
+  font-size: 70px;
+}
+
+.cart-prod {
+  font-size: 30px;
+}
 
 table { 
   width: 100%; 
