@@ -64,7 +64,13 @@
                         <tr>
                             <td>{{ product.name }}</td>
                             <td>${{ product.price }}</td>
-                            <td>{{ product.quantity }}</td>
+                            <td><select name="quantity" class="form-select form-select-sm" style="width: 70px; font-size: 20px;" id="qty-cart">
+                                <option value="1">1</option>
+                                <option value="1">2</option>
+                                <option value="1">3</option>
+                                <option value="1">4</option>
+                                <option value="1">5</option>
+                            </select></td>
                         </tr>
                         {% endfor %}
                         {% else %}
