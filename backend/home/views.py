@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm
+from django.shortcuts import render, redirect
+from .forms import NewsletterForm
 
 # Create your views here.
 def newsletter_signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = NewsletterForm(request.POST)
         if form.is_valid():
-            return redirect('success_url') 
+            form.save()
+            return redirect('newsletter_signup/')
     else:
-        form = SignUpForm()
+        form = NewsletterForm()
     return render(request, 'newsletter.html', {'form': form})

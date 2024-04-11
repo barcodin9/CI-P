@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'landing',
     'home',
     'merchandise',
-    'media',
     'login',
     'cart',
 

@@ -16,24 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import checkout, home
+from .views import home
 from django.conf import settings
 from django.conf.urls.static import static
+from home.views import newsletter_signup
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls')),
     path('home/', home, name='home_newsletter'),
-    path('checkout/', checkout, name='checkout'),
+    path('checkout/', include('checkout.urls')),
     path('merch/', include('merchandise.urls')),
-    path('media/', include('media.urls')),
     path('login/', include('login.urls')),
     path('cart/', include('cart.urls')),
-    
-    
-    
-    
+    path('newsletter_signup/', newsletter_signup, name='newsletter_signup'),
+
+
+
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
