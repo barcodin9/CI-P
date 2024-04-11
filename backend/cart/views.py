@@ -8,25 +8,30 @@ from django.http import JsonResponse
 def cart_summary(request):
     cart = Cart(request)
     cart_products = cart.get_prods
-    return render(request, 'cart_summary.html', {"cart_products":cart_products} )
+    quantities = cart.get_quants
+    return render(request, 'cart_summary.html', {"cart_products":cart_products, "quantities":quantities} )
 
 def cart_add(request):
     cart = Cart(request)
     # test POST
     if request.POST.get('action') == 'post':
         #get product related
-        product_id = int(request.POST.get('product_id'))
-        product_qty = int(request.POST.get('product_qty'))
+        product_id = request.POST.get('product_id')
+        product_qty = request.POST.get('quantity', 1) 
 
-        #product in db
+       
+        if product_id and product_qty:
+            product_id = int(product_id)
+            product_qty = int(product_qty)
+        else:
+            return JsonResponse({'error': 'Product ID or quantity missing'})
+
         product = get_object_or_404(Product, id=product_id)
-        #save to session
         cart.add(product=product, quantity=product_qty)
 
-        #return response
-        # response = JsonResponse({'Product Name: ': product.name})
-        response = JsonResponse({'Product Name: ': product.name})
+        response = JsonResponse({'Product Name': product.name})
         return response
+
 
 
 

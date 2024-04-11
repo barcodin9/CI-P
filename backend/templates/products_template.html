@@ -11,12 +11,12 @@
 
             
             <h3 class="quantity-title text-light">Quantity:</h3>
-            <select name="quantity" class="form-select form-select-md" style="width: 150px; font-size: 25px;" id="qty-cart">
+            <select name="quantity" class="form-select form-select-md" style="width: 150px; font-size: 25px;" id="qty-cart-{{ product.id }}">
                 <option value="1">1</option>
-                <option value="1">2</option>
-                <option value="1">3</option>
-                <option value="1">4</option>
-                <option value="1">5</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select>
 
             <p class="product-rating">Rating: {{ product.rating }}</p>
@@ -29,13 +29,14 @@
 // check button press
 $(document).on('click', '.add-cart', function(e){
     var productId = $(this).val();
+    var quantity = $('#qty-cart-' + productId).val()
     e.preventDefault();
     $.ajax({
         type: 'POST',
         url: "{% url 'cart_add' %}",
         data: {
     product_id: productId,
-    product_qty: $('#qty-cart option:selected').text(),
+    quantity: quantity,
     csrfmiddlewaretoken: '{{ csrf_token }}',
     action: 'post',
         },
