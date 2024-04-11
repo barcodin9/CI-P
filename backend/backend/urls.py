@@ -20,13 +20,13 @@ from .views import checkout, home
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls')),
     path('home/', home, name='home_newsletter'),
     path('checkout/', checkout, name='checkout'),
     path('merch/', include('merchandise.urls')),
-    
     path('media/', include('media.urls')),
     path('login/', include('login.urls')),
     path('cart/', include('cart.urls')),
