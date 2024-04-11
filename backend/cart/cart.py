@@ -1,4 +1,6 @@
 from merchandise.models import Product
+from django.http import JsonResponse
+
 
 
 class Cart():
@@ -48,5 +50,27 @@ class Cart():
         ourcart[product_id] = product_qty
 
         self.session.modified = True
+        response = JsonResponse({'message': 'Cart updated..'})
+        return response
 
         
+
+    def cart_total(self):
+        product_ids = self.cart.keys()
+        products = Product.objects.filter(id__in=product_ids)
+        quantities = self.cart
+        total = 0
+        for key, value in quantities.items():
+            key = int(key)
+            for product in products:
+                if product.id == key:
+                    total = total + (product.price * value)
+        return total
+
+
+    def delete(self, product):
+        product_id = str(product)
+        if product_id in self.cart:
+            del self.cart[product_id]
+
+        self.session.modified = True

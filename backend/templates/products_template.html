@@ -41,8 +41,9 @@ $(document).on('click', '.add-cart', function(e){
     action: 'post',
         },
 
-        success: function(json){
-            console.log(json)
+        success: function(response){
+            alert(response.message);
+            location.reload();
         },
 
         error: function(xhr, errmsg, err){

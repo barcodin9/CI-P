@@ -82,6 +82,9 @@
                                     <button type="button" data-index="{{product.id}}" class="btn btn-secondary update-cart">
                                     Update
                                 </button>
+                                <button type="button" data-index="{{product.id}}" class="btn btn-danger delete-product">
+                                    Delete Item
+                                </button>
                             </td>
                         </tr>
                         {% endfor %}
@@ -94,7 +97,7 @@
             <div class="cart-summary">
                 <div class="cart-total">
                     <!-- total -->
-                    <strong>Total: €{{ total_price }}</strong>
+                    <h2>Total: €{{ totals }} </h2>
                 </div>
                 <button class="checkout-btn">Proceed to Checkout</button>
             </div>
@@ -112,6 +115,7 @@
     </div>
 </footer>
 <script>
+    // update qty cart
     $(document).ready(function() {
         $('.update-cart').click(function(e) {
             e.preventDefault();
@@ -137,6 +141,33 @@
             });
         });
     });
+
+
+// delete item from cart
+    $(document).ready(function() {
+        $('.delete-product').click(function(e) {
+            e.preventDefault();
+            var productId = $(this).data('index');
+
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'cart_delete' %}", 
+                data: {
+                    product_id: productId,
+                    csrfmiddlewaretoken: '{{ csrf_token }}', 
+                    action: 'post',
+                },
+                success: function(response) {
+                    console.log(response); 
+                    location.reload();
+                },
+                error: function(xhr, errmsg, err) {
+                    console.log(errmsg); 
+                },
+            });
+        });
+    });
+
 </script>
 
 <script src="https://kit.fontawesome.com/93273035b0.js" crossorigin="anonymous"></script>
