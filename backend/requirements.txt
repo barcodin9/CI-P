@@ -9,6 +9,7 @@ defusedxml==0.7.1
 dj-database-url==2.1.0
 Django==4.2.11
 django-allauth==0.41.0
+django-crispy-forms==1.14.0
 Flask==3.0.2
 future @ file:///AppleInternal/Library/BuildRoots/9dd5efe2-7fad-11ee-b588-aa530c46a9ea/Library/Caches/com.apple.xbs/Sources/python3/future-0.18.2-py3-none-any.whl
 google-auth==2.23.0

@@ -29,6 +29,7 @@ urlpatterns = [
     path('merch/', include('merchandise.urls')),
     path('login/', include('login.urls')),
     path('cart/', include('cart.urls')),
+    path('checkout/', include('checkout.urls')),
     path('newsletter_signup/', newsletter_signup, name='newsletter_signup'),
 
 
