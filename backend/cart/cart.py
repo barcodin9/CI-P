@@ -35,7 +35,7 @@ class Cart():
     def get_prods(self):
         #get ids from cart
         product_ids = self.cart.keys()
-       #look up db products
+        #look up db products
         products = Product.objects.filter(id__in=product_ids)
         #return
         return products
@@ -55,7 +55,13 @@ class Cart():
         response = JsonResponse({'message': 'Cart updated..'})
         return response
     
-    @staticmethod
+    def delete(self, product):
+        product_id = str(product)
+        if product_id in self.cart:
+            del self.cart[product_id]
+
+        self.session.modified = True
+    
     def calculate_delivery(total):
         return total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
     
@@ -78,11 +84,3 @@ class Cart():
         grand_total = Cart.grand_total(delivery_cost, total)
         return total, delivery_cost, grand_total
     
-
-
-    def delete(self, product):
-        product_id = str(product)
-        if product_id in self.cart:
-            del self.cart[product_id]
-
-        self.session.modified = True

@@ -57,7 +57,8 @@
                 </thead>
                 <tbody>
                     {% if cart_products %}
-                        {% for product in bag_items %}
+                    {% for product in cart_products %}
+
                         <tr>
                             <td>{{ product.name }}</td>
                             <td>${{ product.price }}</td>

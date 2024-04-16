@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, reverse
 
 
 def checkout(request):
-    bag = request.session.get('bag', {})
+    bag = request.session.get('cart', {})
     if not bag:
         messages.error(request, "There's currently nothing in your basket..")
         return redirect(reverse('merchandise'))
