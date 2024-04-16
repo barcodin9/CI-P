@@ -1,5 +1,7 @@
 from merchandise.models import Product
+from decimal import Decimal
 from django.http import JsonResponse
+from django.conf import settings
 
 
 
@@ -52,8 +54,14 @@ class Cart():
         self.session.modified = True
         response = JsonResponse({'message': 'Cart updated..'})
         return response
+    
+    @staticmethod
+    def calculate_delivery(total):
+        return total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+    
+    def grand_total(delivery_cost, total):
+        return total + delivery_cost
 
-        
 
     def cart_total(self):
         product_ids = self.cart.keys()
@@ -65,7 +73,11 @@ class Cart():
             for product in products:
                 if product.id == key:
                     total = total + (product.price * value)
-        return total
+        total = Decimal(total)
+        delivery_cost = Cart.calculate_delivery(total)
+        grand_total = Cart.grand_total(delivery_cost, total)
+        return total, delivery_cost, grand_total
+    
 
 
     def delete(self, product):

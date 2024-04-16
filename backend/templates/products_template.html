@@ -20,7 +20,7 @@
             </select>
 
             <p class="product-rating">Rating: {{ product.rating }}</p>
-            <button type="button" class="add-cart" value="{{ product.id }}">Add to cart</button>
+            <button type="button" class="add-cart" value="{{ product.id }}" method="POST">Add to cart</button>
         </div>
     {% endfor %}
 </div>

@@ -153,5 +153,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #stripe settings
+STANDARD_DELIVERY_PERCENTAGE = 10
+STRIPE_CURRENCY = 'eur'
+DEFAULT_FROM_EMAIL = 'thecrypt@example.com'
 STRIPE_PUBLIC_KEY = 'pk_test_51P2aj3Rv8bNUIMLrIvltTuLuoBRklBZnXEd4s6aUo3hvsuKxZGoWr9poabPAuGXIbSrsJMBRRhDZyO3OAyT6cEjf00k2bTP9cp'
 STRIPE_SECRET_KEY = 'sk_test_51P2aj3Rv8bNUIMLroqIHaa0y8P1ZnRbcc4TjAhix7XL4N5fxemBfxopZVd9WCMewvqAlam06PZUIHyJKTzdqjTHP00RMduZDS1'

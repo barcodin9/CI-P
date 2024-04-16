@@ -57,7 +57,7 @@
                 </thead>
                 <tbody>
                     {% if cart_products %}
-                        {% for product in cart_products %}
+                        {% for product in bag_items %}
                         <tr>
                             <td>{{ product.name }}</td>
                             <td>${{ product.price }}</td>
@@ -94,7 +94,9 @@
             <div class="cart-summary">
                 <div class="cart-total">
                     <!-- total -->
-                    <h2>Total: €{{ totals }} </h2>
+                    <h4><strong>Subtotal: €{{ totals|floatformat:2 }}</strong></h4>
+                    <h4>Delivery: €{{ delivery_cost|floatformat:2 }}</h4>
+                    <h2 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h2>
                 </div>
                 <a href="{% url 'checkout' %}"><button class="checkout-btn">Proceed to Checkout</button></a>
             </div>
