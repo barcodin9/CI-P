@@ -1,4 +1,6 @@
 {% load static %}
+{% load cart_tags %}  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,40 +60,36 @@
                 <tbody>
                     {% if cart_products %}
                     {% for product in cart_products %}
-
                         <tr>
                             <td>{{ product.name }}</td>
                             <td>${{ product.price }}</td>
-                            <td><select name="quantity" class="form-select form-select-sm" style="width: 70px; font-size: 20px;" id="select{{product.id}}">
-                                
-                                {% for key, value in quantities.items %}
-                                        {% if key == product.id|slugify %}
-                                <option selected>{{ value }}</option>
+                            <td>
+                                <select name="quantity" class="form-select form-select-sm" style="width: 70px; font-size: 20px;" id="select{{ product.id }}">
+                                    {% for key, value in quantities.items %}
+                                        {% if key|stringformat:"s" == product.id|stringformat:"s" %}
+                                            <option value="{{ value }}" selected>{{ value }}</option>
                                         {% endif %}
-                                {% endfor %}
-                                
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select></td>
-                                <td>
-                                    <button type="button" data-index="{{product.id}}" class="btn btn-secondary update-cart">
-                                    Update
-                                </button>
-                                <button type="button" data-index="{{product.id}}" class="btn btn-danger delete-product">
-                                    Delete Item
-                                </button>
+                                    {% endfor %}
+
+                                    {% for i in "12345"|make_list %}
+                                        {% if not quantities|get_item:product.id|stringformat:"s" == i|stringformat:"s" %}
+                                            <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td>
+                                <button type="button" data-index="{{ product.id }}" class="btn btn-secondary update-cart">Update</button>
+                                <button type="button" data-index="{{ product.id }}" class="btn btn-danger delete-product">Delete Item</button>
                             </td>
                         </tr>
-                        {% endfor %}
-                        {% else %}
-                        <h1>There are currently no items in your cart..</h1>
+                    {% endfor %}
+                    {% else %}
+                        <tr><td colspan="3">There are currently no items in your cart.</td></tr>
                     {% endif %}
                 </tbody>
             </table>
-        
+                    
             <div class="cart-summary">
                 <div class="cart-total">
                     <!-- total -->

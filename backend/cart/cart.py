@@ -9,10 +9,11 @@ class Cart():
     def __init__(self, request):
         self.session = request.session
         
-        cart = self.session.get('session_key')
+        cart = self.session.get('cart', {})
 
-        if 'session_key' not in request.session:
-            cart = self.session['session_key'] = {}
+        if 'cart' not in self.session:
+            self.session['cart'] = {}
+        self.cart = self.session['cart']
 
         # ensure cart on all site pages
         self.cart = cart
@@ -29,7 +30,7 @@ class Cart():
 
         self.session.modified = True
 
-    def __len___(self):
+    def __len__(self):
         return len(self.cart)
     
     def get_prods(self):

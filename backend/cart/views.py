@@ -7,12 +7,19 @@ from django.http import JsonResponse
 
 # Create your views here.
 def cart_summary(request):
-    print("Cart Data:", request.session.get('cart', {})) 
     cart = Cart(request)
     cart_products = cart.get_prods
     quantities = cart.get_quants
     total, delivery_cost, grand_total = cart.cart_total()
-    return render(request, 'cart_summary.html', {"cart_products":cart_products, "quantities":quantities, 'totals':total, 'delivery_cost':delivery_cost, 'grand_total':grand_total} )
+    context = {
+        "cart_products": cart_products,
+        "quantities": quantities,
+        'totals': total,
+        'delivery_cost': delivery_cost,
+        'grand_total': grand_total
+    }
+    return render(request, 'cart_summary.html', context)
+
 
 def cart_add(request):
     cart = Cart(request)
