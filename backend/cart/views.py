@@ -18,7 +18,11 @@ def cart_summary(request):
         'delivery_cost': delivery_cost,
         'grand_total': grand_total
     }
+    
     return render(request, 'cart_summary.html', context)
+    
+
+
 
 
 def cart_add(request):

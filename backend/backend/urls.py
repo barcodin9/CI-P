@@ -31,6 +31,8 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     path('checkout/', include('checkout.urls')),
     path('newsletter_signup/', newsletter_signup, name='newsletter_signup'),
+    path("__debug__/", include("debug_toolbar.urls")),
+    
 
 
 

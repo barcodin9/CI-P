@@ -309,8 +309,17 @@
 }
 
 footer{
-    position: absolute;
+    position: relative;
     bottom: 0;
+}
+
+.checkout-col-text{
+  font-size: 30px;
+  padding-bottom: 40px;
+}
+
+.item-checkout-container {
+  border: 2px solid black ;
 }
 
 

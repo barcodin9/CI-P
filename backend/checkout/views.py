@@ -1,9 +1,9 @@
 from django.contrib import messages
+from django.conf import settings
+from decimal import Decimal
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import OrderForm
 from merchandise.models import Product 
-
-
 
 
 def checkout(request):
@@ -33,11 +33,15 @@ def checkout(request):
         for product in products
     ]
     
-    grand_total = sum(item['subtotal'] for item in cart_products)
+    subtotal = sum(Decimal(item['subtotal']) for item in cart_products)
+    delivery_cost = subtotal * Decimal('0.10')
+    grand_total = subtotal + delivery_cost
 
     context = {
         'order_form': order_form,
         'cart_products': cart_products,
+        'subtotal': subtotal,
+        'delivery_cost': delivery_cost,
         'grand_total': grand_total
     }
 
@@ -46,3 +50,4 @@ def checkout(request):
 def product_detail(request, id):
     product = get_object_or_404(Product, pk=id)
     return render(request, 'product_detail.html', {'product': product})
+
