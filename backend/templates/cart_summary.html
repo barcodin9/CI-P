@@ -103,9 +103,9 @@
         
     <footer class="footer-container">
         <nav>
-            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/pages/creation/?ref_type=facebook_business_website&campaign_id=163681540489385" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://twitter.com/?lang=en" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-link"><i class="fa-brands fa-instagram"></i></a>
         </nav>
 
     <div>
@@ -164,6 +164,40 @@
                 },
             });
         });
+    });
+
+</script>
+
+<script
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_test_Y2hlZXJmdWwtbGFtcHJleS0zNS5jbGVyay5hY2NvdW50cy5kZXYk"
+  src="http://cheerful-lamprey-35.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
+  type="text/javascript"
+></script>
+<script>
+    
+    window.addEventListener("load", async function () {
+      await Clerk.load();
+   
+      if (Clerk.user) {
+        document.getElementById("login").innerHTML = `<div id="user-button"></div>`;
+   
+        const userButtonDiv = document.getElementById("user-button");
+   
+        Clerk.mountUserButton(userButtonDiv);
+      } else {
+        document.getElementById("clerk-login").innerHTML = `
+          <div id="sign-in"></div>
+        `;
+
+        document.getElementById("login").innerHTML = ``;
+
+   
+        const signInDiv = document.getElementById("sign-in");
+   
+        Clerk.mountSignIn(signInDiv);
+      }
     });
 
 </script>

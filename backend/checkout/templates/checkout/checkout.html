@@ -20,78 +20,112 @@
 
 {% block content %}
 
-    <div class="container">
-        <h1 class="checkout-title">CHECKOUT</h1>
-        <div class="row">
-            <div class="col-12 col-lg-8 order-lg-last mb-5">
-                <div class="row ">
-                    <div class="col-7">
-                        <p class="mb-1 mt-0 text-muted checkout-col-overhead">Item</p>
+        <div class="container">
+            <h1 class="checkout-title">CHECKOUT</h1>
+            <div class="row">
+                <!-- Item checkout container -->
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="mb-1 mt-0 text-muted checkout-col-overhead">Item</p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <p class="mb-1 mt-0 text-muted checkout-col-overhead">Subtotal</p>
+                        </div>
                     </div>
-                    <div class="col-3 text-end">
-                        <p class="mb-1 mt-0 text-muted checkout-col-overhead">Subtotal</p>
-                    </div>
-                </div>
 
-
-                {% for item in cart_products %}
-                    
+                    {% for item in cart_products %}
                     <div class="row item-checkout-container">
-                    <div class="col-7 checkout-col-text">
-                        <p class="my-0"><strong>{{ item.product }}</strong></p>
-                        <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        <div class="col-9 checkout-col-text">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        </div>
+                        <div class="col-3 text-end checkout-col-text">
+                            <p class="my-0 small text-muted">€{{ item.subtotal }}</p>
+                        </div>
                     </div>
-                    <div class="col-3 text-end checkout-col-text">
-                        <p class="my-0 small text-muted">€{{ item.subtotal }}</p>
-                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
 
-            <div class="col-12 col-lg-8 mb-5">
-                <h1 class="text-muted mt-2">Fill out the form below to complete your order</h1>
-                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-                    {% csrf_token %}
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label large text-black px-2 w-auto">Details</legend>
-                        {{ order_form.full_name | as_crispy_field }}
-                        {{ order_form.email | as_crispy_field }}
-                    </fieldset>
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label large text-black px-2 w-auto">Delivery</legend>
-                        {{ order_form.phone_number | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-                        {{ order_form.town_or_city | as_crispy_field }}
-                        {{ order_form.street_address1 | as_crispy_field }}
-                        {{ order_form.street_address2 | as_crispy_field }}
-                        {{ order_form.county | as_crispy_field }}
-                    </fieldset>
-                    <fieldset class="rounded px-3">
-                        <legend class="fieldset-label large text-black px-2 w-auto">Payment</legend>
-                        <!-- stripe pay to go here -->
-                        <div class="mb-3" id="card-element"></div>
-                        <!-- stripe error msg to go here -->
-                        <div class="mb-3" id="card-errors" role="alert"></div>
-                    </fieldset>
-            
-                    <div class="d-flex justify-content-end mt-5 mb-2">
-                        <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark rounded-0">
-                            <i class="fas fa-chevron-left"></i>
-                            <span class="ms-2">Adjust Cart</span>
-                        </a>
-                        <button id="submit-button" class="btn btn-dark rounded-0 ms-3">
-                            <i class="fas fa-lock"></i>
-                            <span class="ms-2">Complete Order</span>
-                        </button>
-                    </div>
-                    <p class="small text-danger my-0">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
-                    </p>
-                </form>
-            </div>            
+                <!-- Form container -->
+                <div class="col-lg-5">
+                    <h2 class="text-muted mx-2 my-2">Fill out the form below to complete your order</h2>
+                    <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                        {% csrf_token %}
+                        <fieldset class="rounded px-3 mb-5">
+                            <legend class="fieldset-label large text-black px-2 w-auto">Details</legend>
+                            {{ order_form.full_name|as_crispy_field }}
+                            {{ order_form.email|as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="rounded px-3 mb-5">
+                            <legend class="fieldset-label large text-black px-2 w-auto">Delivery</legend>
+                            {{ order_form.phone_number|as_crispy_field }}
+                            {{ order_form.postcode|as_crispy_field }}
+                            {{ order_form.town_or_city|as_crispy_field }}
+                            {{ order_form.street_address1|as_crispy_field }}
+                            {{ order_form.street_address2|as_crispy_field }}
+                            {{ order_form.county|as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="rounded px-3">
+                            <legend class="fieldset-label large text-black px-2 w-auto">Payment</legend>
+                            <div class="mb-3" id="card-element"></div>
+                            <div class="mb-3" id="card-errors" role="alert"></div>
+                        </fieldset>
+                
+                        <div class="d-flex justify-content-end mt-5 mb-2">
+                            <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark rounded-0">
+                                <i class="fas fa-chevron-left"></i>
+                                <span class="ms-2">Adjust Cart</span>
+                            </a>
+                            <button id="submit-button" class="btn btn-dark rounded-0 ms-3">
+                                <i class="fas fa-lock"></i>
+                                <span class="ms-2">Complete Order</span>
+                            </button>
+                        </div>
+                        <p class="fs-4 text-danger my-0">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong> inc. delivery.</span>
+                        </p>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
+        <script
+        async
+        crossorigin="anonymous"
+        data-clerk-publishable-key="pk_test_Y2hlZXJmdWwtbGFtcHJleS0zNS5jbGVyay5hY2NvdW50cy5kZXYk"
+        src="http://cheerful-lamprey-35.clerk.accounts.dev/npm/@clerk/clerk-js@4/dist/clerk.browser.js"
+        type="text/javascript"
+      ></script>
+      <script>
+          
+          window.addEventListener("load", async function () {
+            await Clerk.load();
+         
+            if (Clerk.user) {
+              document.getElementById("login").innerHTML = `<div id="user-button"></div>`;
+         
+              const userButtonDiv = document.getElementById("user-button");
+         
+              Clerk.mountUserButton(userButtonDiv);
+            } else {
+              document.getElementById("clerk-login").innerHTML = `
+                <div id="sign-in"></div>
+              `;
+      
+              document.getElementById("login").innerHTML = ``;
+      
+         
+              const signInDiv = document.getElementById("sign-in");
+         
+              Clerk.mountSignIn(signInDiv);
+            }
+          });
+      
+      </script>
+      
+
 
 
 {% endblock %}

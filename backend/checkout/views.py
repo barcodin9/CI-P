@@ -3,6 +3,7 @@ from django.conf import settings
 from decimal import Decimal
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import OrderForm
+from .models import Order, OrderLineItem
 from merchandise.models import Product 
 from cart.context_processor import cart_contents
 
@@ -47,7 +48,6 @@ def checkout(request):
             # Process payment and order here (pseudo-code)
             # clear the session cart after payment
             request.session['cart'] = {}
-            messages.success(request, "Thank you for your order.")
             return redirect('success_checkout') 
     else:
         order_form = OrderForm()
@@ -65,7 +65,7 @@ def checkout(request):
     if not stripe_public_key:
          messages.warning(request, 'Stripe public key is missing. \ Did you forget to set it in your environment?')
 
-    template = 'checkout/checkout.html'
+
     context = {
         'order_form': order_form,
         'cart_products': cart_products,
@@ -83,3 +83,19 @@ def product_detail(request, id):
     product = get_object_or_404(Product, pk=id)
     return render(request, 'product_detail.html', {'product': product})
 
+def success_checkout(request, order_number):
+
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+
+    if 'cart' in request.session:
+        del request.session['cart']
+
+    template = 'checkout/success_checkout.html'
+    context = {
+        'order': order,
+    }
+
+    return render(request, template, context)

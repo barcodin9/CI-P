@@ -51,6 +51,15 @@
   font-size: 60px;
 }
 
+.overlay-text2 {
+  position: absolute;
+  text-align: center;
+  width: 100%; 
+  font-size: 34px;
+  color: #fff; 
+  background-color: black;
+}
+
 .overlay-button {
   width: 70%;
   height: 50%;
@@ -236,8 +245,12 @@
   height: 35vh;
   margin-left: 100px;
   border: 10px solid grey;
-  background-color: green;
+  background-color: black;
   grid-area: sidebarhigh;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  
 }
 
 .home-card2 {
@@ -245,14 +258,16 @@
   height: 35vh;
   margin-left: 100px;
   border: 10px solid grey;
-  background-color: green;
+  background-color: black;
   grid-area: sidebarlow;
+  position: relative;
+  display: flex;
+  overflow: hidden;
 }
 
 .card-image {
-  height: 100%;
   width: 100%;
-  object-fit: fill;
+  display: block; 
 }
 
 @media (max-width: 768px) {
