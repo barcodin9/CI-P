@@ -15,9 +15,9 @@ def cart_contents(request):
     cart_items = []
     total = 0
     product_count = 0
-    bag = request.session.get('bag', {})
+    cart = request.session.get('cart', {})
 
-    for item_id, item_data in bag.items():
+    for item_id, item_data in cart.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
