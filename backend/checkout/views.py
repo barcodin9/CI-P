@@ -42,8 +42,11 @@ def checkout(request):
         'cart_products': cart_products,
         'subtotal': subtotal,
         'delivery_cost': delivery_cost,
-        'grand_total': grand_total
+        'grand_total': grand_total,
+        'stripe_public_key': 'pk_test_51P2aj3Rv8bNUIMLrIvltTuLuoBRklBZnXEd4s6aUo3hvsuKxZGoWr9poabPAuGXIbSrsJMBRRhDZyO3OAyT6cEjf00k2bTP9cp',
+        'client_secret': 'test_client_secret',
     }
+    
 
     return render(request, 'checkout/checkout.html', context)
 

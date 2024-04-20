@@ -318,10 +318,18 @@ footer{
   padding-bottom: 40px;
 }
 
-.item-checkout-container {
-  border: 2px solid black ;
+.checkout-title{
+  font-size: 100px;
+  text-decoration: underline;
+  padding: 20px;
 }
 
+.item-checkout-container {
+  border: 1px solid black ;
+}
+
+
+/* STRIPE */
 
 .StripeElement,
 .stripe-style-input {
