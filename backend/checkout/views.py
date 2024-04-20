@@ -4,6 +4,9 @@ from decimal import Decimal
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import OrderForm
 from merchandise.models import Product 
+from cart.context_processor import cart_contents
+
+import stripe
 
 
 def checkout(request):
@@ -13,6 +16,11 @@ def checkout(request):
     if not cart:
         messages.error(request, "There's currently nothing in your basket.")
         return redirect('merch')
+    
+    current_cart = cart_contents(request)
+    total = current_cart['grand_total']
+    stripe_total = round(total * 100)
+
 
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
