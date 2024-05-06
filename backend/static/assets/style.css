@@ -7,7 +7,7 @@
 
 .hero {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: black;
   z-index: -100;
   position: relative;
@@ -49,15 +49,6 @@
   margin: 0;
   color: red;
   font-size: 60px;
-}
-
-.overlay-text2 {
-  position: absolute;
-  text-align: center;
-  width: 100%; 
-  font-size: 34px;
-  color: #fff; 
-  background-color: black;
 }
 
 .overlay-button {
@@ -159,7 +150,7 @@
 
 .home-main-container {
   width: 100%;
-  height: 80vh;
+  min-height: 80vh;
 }
 
 .footer-container {
@@ -216,15 +207,34 @@
 /* Home Page Cards */
 
 .home-innercontainer {
-  width: 100%;
+  width: 100vw;
+  max-width: 100%;
   height: 80vh;
   display: grid;
   grid-template-areas:
-    "topbar topbar topbar"
-    "sidebarhigh carousel carousel"
-    "sidebarlow carousel carousel"
-    "footer footer footer";
-  gap: 50px;
+      "topbar topbar topbar"
+      "sidebarhigh carousel carousel"
+      "sidebarlow carousel carousel"
+      "footer footer footer";
+  gap: 30px;
+  overflow: hidden;
+}
+
+.overlay-text-carousel {
+  width: 100%;
+  text-align: center;
+  font-size: 34px;
+  color: #fff; 
+  background-color: black;
+}
+
+.overlay-text2 {
+  position: absolute;
+  text-align: center;
+  width: 100%; 
+  font-size: 34px;
+  color: #fff; 
+  background-color: black;
 }
 
 .carousel {
@@ -270,20 +280,112 @@
   display: block; 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
+
+
   .home-innercontainer {
-    align-items: flex-start;
-    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    gap: 30px;
+    overflow: hidden;
   }
 
-  .carousel {
-    width: 100%;
-    padding-left: 0;
-  }
+    .carousel {
+      width: 90%;
+      height: fit-content;
+      margin: 5% 0 0 5%;
+      grid-area: carousel;
+      border: 10px solid grey;
+    }
+    
+    .carousel-item img {
+      height: 100%;
+      width: 100%;
+    }
+    
+    .home-card1 {
+      width: 90%;
+      height: fit-content;
+      border: 10px solid grey;
+      background-color: black;
+      grid-area: sidebarhigh;
+      margin: 5% 0 0 5%;
+      display: flex;
+      overflow: hidden;
+      
+    }
+    
+    .home-card2 {
+      width: 90%;
+      height: fit-content;
+      border: 10px solid grey;
+      background-color: black;
+      grid-area: sidebarlow;
+      margin: 5% 0 5% 5%;
+      display: flex;
+      overflow: hidden;
+    }
+    
+}
+
+
+
+@media (max-width: 768px) {
+
 
   .copyright {
     font-size: 20px;
   }
+
+  .home-innercontainer {
+    grid-template-areas:
+            "topbar topbar topbar"
+            "carousel carousel carousel"
+            "sidebarhigh sidebarhigh sidebarhigh"
+            "sidebarlow sidebarlow sidebarlow"
+            "footer footer footer";
+    margin: 0;
+}
+
+.home-innercontainer {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  gap: 30px;
+  overflow: hidden;
+}
+
+  .carousel {
+    width: 90%;
+    height: fit-content;
+    grid-area: carousel;
+    border: 10px solid grey;
+    display: flex;
+  }
+  
+  .home-card1 {
+    width: 90%;
+    height: fit-content;
+    border: 10px solid grey;
+    background-color: black;
+    grid-area: sidebarhigh;
+    display: flex;
+    overflow: hidden;
+    
+  }
+  
+  .home-card2 {
+    width: 90%;
+    height: fit-content;
+    border: 10px solid grey;
+    background-color: black;
+    grid-area: sidebarlow;
+    display: flex;
+    overflow: hidden;
+  }
+
+
 }
 
 /* Login page */
@@ -399,7 +501,7 @@ button[type="submit"]:hover {
   padding: 5px;
 }
 
-/* Storefront */
+/* Merch page */
 
 #products-container {
   display: grid;
@@ -479,6 +581,31 @@ align-self: flex-end;
 
 .add-cart:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 1300px) {
+
+  #products-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 20px 10% 20px 10%;
+    
+}
+
+
+
+@media (max-width: 768px) {
+
+  #products-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 50px;
+    padding: 20px 10% 20px 10%;
+    
+}
+  
+}
 }
 
 /* Cart */

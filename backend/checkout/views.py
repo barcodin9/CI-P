@@ -40,17 +40,18 @@ def checkout(request):
 
 
     if request.method == 'POST':
+        print("test")
         order_form = OrderForm(request.POST)
         if order_form.is_valid():
             order = order_form.save(commit=False)
             order.total = total
             order.save()
-            # Process payment and order here (pseudo-code)
-            # clear the session cart after payment
             request.session['cart'] = {}
-            return redirect('success_checkout') 
+            return redirect('success_checkout.html', order_number=Order.order_number)
     else:
+        print("test2")
         order_form = OrderForm()
+    
 
     product_ids = cart.keys()
     products = Product.objects.filter(id__in=product_ids)
@@ -66,6 +67,8 @@ def checkout(request):
          messages.warning(request, 'Stripe public key is missing. \ Did you forget to set it in your environment?')
 
 
+
+
     context = {
         'order_form': order_form,
         'cart_products': cart_products,
@@ -76,7 +79,6 @@ def checkout(request):
         'client_secret': intent.client_secret,
     }
     
-
     return render(request, 'checkout/checkout.html', context)
 
 def product_detail(request, id):
@@ -93,7 +95,7 @@ def success_checkout(request, order_number):
     if 'cart' in request.session:
         del request.session['cart']
 
-    template = 'checkout/success_checkout.html'
+    template = 'success_checkout.html'
     context = {
         'order': order,
     }

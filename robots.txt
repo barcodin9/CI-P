@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://the-crypt-91228a836777.herokuapp.com/sitemap.xml

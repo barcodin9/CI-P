@@ -2,6 +2,7 @@
     <form method="post" id="newsletter-container">
         {% csrf_token %}
         <h2 id="email-entry1">Sign Up to our newsletter!</h2>
+        <input type="email" name="email" placeholder="Enter Email..." style="height: 40px; width: 300px;"/>
         {{ form.as_p }}
         <button type="submit" id="newsletter-submit">Sign up</button>
     </form>

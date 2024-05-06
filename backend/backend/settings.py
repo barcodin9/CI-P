@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-51*1!pdr$0_0pvo@42yth6*g7((7km=nhc*drg417noyfgl98f'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'TESTKEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['the-crypt', 'localhost']
+ALLOWED_HOSTS = ['the-crypt-91228a836777.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'checkout',
     'bootstrap4',
     'crispy_forms',
-    'debug_toolbar'
+    'debug_toolbar',
+    'storages',
 
 ]
 
@@ -60,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -132,8 +134,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 INTERNAL_IPS = [
-
-    "127.0.0.1",
     
 ]
 
@@ -157,10 +157,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # settings.py
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
 
 
 # Default primary key field type

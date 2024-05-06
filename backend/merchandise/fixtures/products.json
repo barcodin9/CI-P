@@ -4,12 +4,12 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5001340155",
-            "name": "Arizona Original Bootcut Jeans",
-            "description": "Bootcut jeans in our just-right original fit are comfortable and look great too.  5-pocket style sits below waist straight fit through seat and thigh bootcut leg 18\" leg opening cotton washable imported extended sizes and washes available online only",
-            "price": 53.99,
+            "name": "Dummy T-Shirt",
+            "description": "One size fits all you dummies!",
+            "price": 58.99,
             "category": 6,
             "rating": 4.6,
-            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0709201205510679M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image_url": "https://res.cloudinary.com/teepublic/image/private/s--9hIZJnQ2--/t_Resized%20Artwork/c_crop,x_10,y_10/c_fit,h_626/c_crop,g_north_west,h_626,w_470,x_-44,y_0/g_north_west,u_upload:v1468361755:production:blanks:ao7fb4tfadj8v4fkmc1o,x_-439,y_-325/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1634412096/production/designs/24964210_0.jpg",
             "image": "DP0709201205510679M.jpg"
         }
     },
@@ -18,12 +18,12 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5001600425",
-            "name": "Liz Claiborne Audra Classic Fit Straight Leg Pants",
-            "description": "Straight-leg styling and on-the-job comfort make our Audra pants a flattering business decision. flat front zip fly with hook-and-bar closure 2 front and 2 back welt pockets 34 1/2\" inseam polyester/rayon/spandex washable imported",
-            "price": 58.99,
+            "name": "Jason's Machete",
+            "description": "Note: Not the actual machete used at the crystal lake.",
+            "price": 205.99,
             "category": 4,
             "rating": 4.6,
-            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0113201617034987M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image_url": "https://i.etsystatic.com/20414250/r/il/edc86e/2597446675/il_fullxfull.2597446675_c7m3.jpg",
             "image": "DP0113201617034987M.jpg"
         }
     },
@@ -32,12 +32,12 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5001730010",
-            "name": "Royal Velvet Matte Satin Square 3-pc. Coverlet Set",
-            "description": "Add a 5-star resort feel to your bedroom with the elegant Matte Satin Square coverlet set, featuring modern embroidered squares and flanged trim.  square embroidered pattern flanged-edge trim fabric is washable for easy care 3-piece set includes: coverlet 2 shams Polyester coverlet with cotton fill; polyester shams. Washable. Imported. Full/Queen: coverlet is 92x96\" King: coverlet is 110x96\"",
-            "price": 205.99,
+            "name": "Chucky the Doll",
+            "description": "Add a 5-star resort feel to your bedroom with the elegant Matte Satin Square coverlet set, featuring modern embroidered squares and flanged trim.  square embroidered pattern flanged-edge trim fabric is washable for easy care 3-piece set includes: coverlet 2 shams Polyester coverlet with cotton fill; polyester shams. Washable. Imported. Full/Queen: coverlet is 92x96\" King: coverlet is 110x96\"Own the actual Chucky, hauntings and all, watch out though, he might get you!",
+            "price": 169.99,
             "category": 2,
             "rating": 4.7,
-            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP1230201417013175M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/38/Chucky_Appearance_%28TV_Series%29.jpeg",
             "image": "DP1230201417013175M.jpg"
         }
     },
@@ -46,12 +46,12 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5001890157",
-            "name": "Gibson Infinite Glaze 16-pc. Dinnerware Set",
-            "description": "An exhibition in contrast, this dinnerware sets simple, clean design is perfect for both everyday use and special occasions. durable stoneware construction microwave and oven safe service for 4 16-piece set includes: four 10\" dinner plates four 7\" dessert plates four 6\" bowls four 12-ounce mugs Stoneware. Dishwasher safe. Imported.",
-            "price": 169.99,
+            "name": "Freddy Kreuger's Sweater!",
+            "description": "Freddy Kreuger's Iconic striped sweater.",
+            "price": 232.99,
             "category": 7,
             "rating": 3,
-            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0716201503423610M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg209RWnbgajY9pa6FvcNEKSOmRW81AxARR5dBL3VitQ&s",
             "image": "DP0716201503423610M.jpg"
         }
     },
@@ -60,12 +60,12 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5002111605",
-            "name": "Simply Calphalon Enameled Cast Iron Panini Pan",
-            "description": "Durable enameled cast iron construction allows the panini pan to heat evenly, so you can whip up a meal with ease and complete confidence.  cooks with little to no oils or fats so every recipe is healthier nonstick interior for quick and easy clean-ups stainless steel knob on cover enameled cast iron heats evenly and consistently stove, broiler and oven safe Cast iron/stainless steel. Dishwasher safe. Imported. ",
-            "price": 232.99,
+            "name": "The Nanocamera Suit from The Invisible Man (2020)",
+            "description": "A fully functioning prototype of the transparent suit from The Invisible Man, waiver must be signed to own.",
+            "price": 9999.00,
             "category": 7,
             "rating": 5,
-            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP1115201210371197C.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image_url": "https://cdn.mos.cms.futurecdn.net/TfNpX8sKY23ggKvpQGaWaM.jpg",
             "image": "DP1115201210371197C.jpg"
         }
     },
@@ -74,12 +74,12 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5002260206",
-            "name": "The Foundry Supply Co. Solid Pocket TeeBig & Tall",
-            "description": "Get a better basic tee in a size that truly fits with this pocket t-shirt from The Foundry Supply Co.  short-sleeve, crew-neck tee left chest pocket 100% cotton washable imported",
-            "price": 30.99,
+            "name": "You're Next's mask collection",
+            "description": "From the underrated gem 'You're Next' get your hands on the mask collection.",
+            "price": 88.00,
             "category": 9,
             "rating": 4.7,
-            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0624201520422666C.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image_url": "https://i.pinimg.com/originals/cf/48/7c/cf487c55299bd417cd8d4bdd00542cb4.jpg",
             "image": "DP0624201520422666C.jpg"
         }
     },
@@ -88,12 +88,12 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5002440521",
-            "name": "Liz Claiborne Classic Sophie Secretly Slender Trouser Leg Pants - Plus",
-            "description": "Walk a little taller in our slimming straight-leg pants. flat front slim fit straight leg front fly with nylon zipper, hook and bar closure 32\" inseam polyester/rayon/spandex washable imported ",
-            "price": 59,
+            "name": "Ghostface Mask",
+            "description": "Own the ghostface mask prominent in the SCREAM movies!",
+            "price": 39.99,
             "category": 4,
             "rating": 4.4,
-            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0226201317034754M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image_url": "https://www.elliottsfancydress.ie/media/catalog/product/cache/90066f2dac9a5ac408f96da391ad8a55/s/c/scream-vi-aged-ghost-face-mask-.jpg",
             "image": "DP0226201317034754M.jpg"
         }
     },
@@ -102,12 +102,12 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5002601115",
-            "name": "Rachael Ray Ceramic Olive Oil Dispenser",
-            "description": "This olive oil dispenser is designed for storing extra virgin olive oil, so it's close at hand for drizzling on food.  24-ounce capacity cruet opaque bottle and non-porous glazed interior keep oil in the dark to avoid oxidation and preserve taste playful, contemporary design Stoneware. Dishwasher-safe. Imported.",
-            "price": 36.99,
+            "name": "Jason Vorhees' Hockey Mask",
+            "description": "Jason Vorhees highly recognisable hockey mask stolen straight from the set!",
+            "price": 74.99,
             "category": 7,
             "rating": 4.5,
-            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0926201317071162M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image_url": "https://i.etsystatic.com/29288476/r/il/6e6408/4138149953/il_570xN.4138149953_5htn.jpg",
             "image": "DP0926201317071162M.jpg"
         }
     },
@@ -116,27 +116,13 @@
         "model": "merchandise.product",
         "fields": {
             "sku": "pp5002690715",
-            "name": "Protech Performance Sheet Set",
-            "description": "Protech sheets are like activewear for your bed! The same cutting edge technology that is used in today's sportswear is also used in these Protech Plus sheets to give you a better night's sleep. Breathable ultra-fine microfiber wicks away moisture, keeping your body cool throughout the night while a 4-way stretch component allows you comfort in movement. This stretching ability also helps while making the bed, fitting most premium size mattresses; you won't have to struggle to get the sheets to fit all the way around.  4-way stretch component allows you comfort in movement available in a variety of solid colors microfiber knit fits mattresses up to 19\" deep Set includes: fitted sheet flat sheet 2 pillowcases Polyester/spandex. Washable. Imported. Full: 54x75 Queen: 60x80 King: 78x80 Cal. King: 72x84",
-            "price": 169.99,
+            "name": "Cricket Bat",
+            "description": "The cricket bat from the classic Shaun of the Dead.",
+            "price": 53.99,
             "category": 2,
             "rating": 4.7,
-            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP1020201517025390M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX8W5rUS3eI8IYfbJ5dIVI50jz1uR9hm5SW6-I4f2UMQ&s",
             "image": "DP1020201517025390M.jpg"
-        }
-    },
-    {
-        "pk": 10,
-        "model": "merchandise.product",
-        "fields": {
-            "sku": "pp5002701115",
-            "name": "Reflections Set of 4 Microfiber Napkins",
-            "description": "Complete the look of your table setting with these easy-care microfiber napkins.  great for everyday use or entertaining liquid-resistant design helps protect against spills set of 4 Polyester.Each measures 19x19\". Washable. Imported.",
-            "price": 33.99,
-            "category": 7,
-            "rating": 4.4,
-            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0418201317011949M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
-            "image": "DP0418201317011949M.jpg"
         }
     }
 ]
